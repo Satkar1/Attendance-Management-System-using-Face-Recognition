@@ -2,4 +2,4 @@ opencv-python
 pillow
 pandas
 numpy
-tkinter
+
