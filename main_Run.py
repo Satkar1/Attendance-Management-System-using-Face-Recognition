@@ -1,4 +1,4 @@
-import tkinter as tk
+#import tkinter as tk
 from tkinter import *
 import cv2
 import csv
@@ -8,10 +8,12 @@ from PIL import Image, ImageTk
 import pandas as pd
 import datetime
 import time
+import streamlit as st
+st.title("Face Recognition Attendance")
 
 # Window is our Main frame of system
-window = tk.Tk()
-window.title("Attendance Management System using Face Recognition")
+#window = tk.Tk()
+#window.title("Attendance Management System using Face Recognition")
 
 window.geometry('1280x720')
 window.configure(background='grey80')
