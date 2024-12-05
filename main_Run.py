@@ -326,14 +326,14 @@ def take_img():
                     break
                 #
                 # # break if the sample number is morethan 100
-                elif sampleNum > 40:
+                elif sampleNum > 70:
                     break
 
 
             cam.release()
             cv2.destroyAllWindows()
             ts = time.time()
-            Date = datetime.datetime.fromtimestamp(ts).strftime('%Y_%m_%d')
+            Date = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
             Time = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
             row = [Enrollment, Name, Date, Time]
             with open('StudentDetails\StudentDetails.csv', 'a+') as csvFile:
