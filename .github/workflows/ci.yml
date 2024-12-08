@@ -38,7 +38,8 @@ jobs:
           export DISPLAY=:99
           Xvfb :99 &
 
-      # Step 5: Run the application
+      # Step 5: Run the application with virtual display
       - name: Run the application
         run: |
+          export DISPLAY=:99
           python main_Run.py
