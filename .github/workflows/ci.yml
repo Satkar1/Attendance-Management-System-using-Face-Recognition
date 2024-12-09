@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Set a timeout to avoid indefinite hangs
+    timeout-minutes: 30
 
     steps:
       # Step 1: Check out the repository
@@ -28,16 +28,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Set up Xvfb for GUI support
-      - name: Run the Tkinter application
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: |
-            echo "Starting the Tkinter application"
-            python main_Run.py
+      # Step 4: Install Xvfb manually
+      - name: Install Xvfb
+        run: sudo apt-get install -y xvfb
 
-      # Step 5: Debugging (optional)
-      - name: Print logs for debugging
+      # Step 5: Start Xvfb and run the Tkinter application
+      - name: Run Tkinter application
         run: |
-          ls -la
-          cat log_file.txt  # If your script generates logs
+          echo "Starting the Tkinter application"
+          xvfb-run --auto-servernum --server-args="-screen 0 1024x768x24" python main_Run.py
