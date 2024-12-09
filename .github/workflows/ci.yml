@@ -28,13 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Set up Xvfb for GUI applications
-      - name: Set up Xvfb
-        uses: GabrielBB/xvfb-action@v1
-
-      # Step 5: Run the main application
+      # Step 4: Run the application with Xvfb
       - name: Run the Tkinter application
-        run: |
-          echo "Starting the Tkinter application at $(date)"
-          python main_Run.py
-          echo "Application finished at $(date)"
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: |
+            echo "Starting the Tkinter application at $(date)"
+            python main_Run.py
+            echo "Application finished at $(date)"
